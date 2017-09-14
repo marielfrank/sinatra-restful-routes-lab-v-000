@@ -30,6 +30,6 @@ class ApplicationController < Sinatra::Base
   post '/recipes' do
     # binding.pry
     @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
-    erb "/recipes/#{@recipe.id}"
+    erb :show
   end
 end
