@@ -5,7 +5,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes/new' do
-    # binding.pry
     erb :new
   end
 
@@ -21,9 +20,15 @@ class ApplicationController < Sinatra::Base
 
   get '/recipes/:id' do
     @recipe = Recipe.find_by(id: params[:id])
-    # binding.pry
     erb :show
   end
+
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find_by(id: params[:id])
+    erb :edit
+  end
+
+  patch '/'
 
   delete '/recipes/:id/delete' do
     @recipe = Recipe.find_by(id: params[:id])
