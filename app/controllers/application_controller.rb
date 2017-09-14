@@ -22,4 +22,8 @@ class ApplicationController < Sinatra::Base
     @recipe.delete
     redirect '/recipes'
   end
+
+  get '/recipes/new' do
+    :erb new
+  end
 end
